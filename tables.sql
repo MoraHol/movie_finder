@@ -25,7 +25,7 @@ CREATE TABLE movie_finder.film
     film_id INT NOT NULL PRIMARY KEY auto_increment, -- primary key column
     title varchar(70) NOT NULL,
     description text,
-    length_minutes int NOT NULL,
+    length_minutes int,
     release_year int NOT NULL
 );
 
@@ -63,7 +63,7 @@ CREATE TABLE movie_finder.country
 );
 
 /*==============================================================*/
-/* Table: language                                            */
+/* Table: language                                              */
 /*==============================================================*/
 
 -- Create a new table called 'language' in schema 'movie_finder'
@@ -112,7 +112,7 @@ CREATE TABLE movie_finder.director
 );
 
 /*==============================================================*/
-/* Table: genre                                             */
+/* Table: genre                                                 */
 /*==============================================================*/
 
 -- Create a new table called 'genre' in schema 'movie_finder'
@@ -169,7 +169,7 @@ CREATE TABLE movie_finder.cast
 );
 
 /*==============================================================*/
-/* Table: film_genre                                         */
+/* Table: film_genre                                            */
 /*==============================================================*/
 
 -- Create a new table called 'film_genre' in schema 'movie_finder'
