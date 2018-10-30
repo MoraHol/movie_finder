@@ -1,0 +1,1 @@
+INSERT INTO `film_genre` (`genre_id`, `film_id`) VALUES ('2', '1'), ('9', '1'), ('10', '1');
