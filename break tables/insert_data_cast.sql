@@ -1,4 +1,4 @@
-INSERT INTO `cast` (`actor_id`, `film_id`, `role`) VALUES
+INSERT INTO movie_finder.cast (`person_id`, `film_id`, `role`) VALUES
 (1, 1, 'protagonist'),
 (2, 1, 'protagonist'),
 (3, 1, 'protagonist'),

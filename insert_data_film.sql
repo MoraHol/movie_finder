@@ -5,4 +5,6 @@ INSERT INTO movie_finder.film (`film_id`, `title`, `description`, `length_minute
 (NULL,'Pass Over','Two young men pass the time dreaming of the promised land.','74','2018'),
 (NULL,'Resident Evil: The Final Chapter','Alice returns to where the nightmare began: The Hive in Raccoon City, where the Umbrella Corporation is gathering its forces for a final strike against the only remaining survivors of the apocalypse.','107','2016'),
 (NULL,'Dead Pool 2','Foul-mouthed mutant mercenary Wade Wilson (AKA. Deadpool), brings together a team of fellow mutant rogues to protect a young boy with supernatural abilities from the brutal, time-traveling cyborg, Cable.','120','2018'),
-(NULL,'Criminal','In a last-ditch effort to stop a diabolical plot, a dead CIA operatives memories, secrets, and skills are implanted into a death-row inmate in hopes that he will complete the operatives mission.','113','2016');
+(NULL,'Criminal','In a last-ditch effort to stop a diabolical plot, a dead CIA operatives memories, secrets, and skills are implanted into a death-row inmate in hopes that he will complete the operatives mission.','113','2016'),
+(null,'American Beauty','A sexually frustrated suburban father has a mid-life crisis after becoming infatuated with his daughters best friend.','122','1999'),
+(null,'Annie Hall','Neurotic New York comedian Alvy Singer falls in love with the ditzy Annie Hall.','93','1977');

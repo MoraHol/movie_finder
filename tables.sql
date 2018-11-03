@@ -38,9 +38,9 @@ CREATE TABLE movie_finder.film
 DROP TABLE IF EXISTS movie_finder.actor;
 
 -- Create the table in the specified schema
-CREATE TABLE movie_finder.actor
+CREATE TABLE movie_finder.person
 (
-    actor_id INT NOT NULL PRIMARY KEY auto_increment, -- primary key column
+    person_id INT NOT NULL PRIMARY KEY auto_increment, -- primary key column
     first_name varchar(30) NOT NULL,
     last_name varchar(30) NOT NULL
 );
@@ -90,26 +90,9 @@ DROP TABLE IF EXISTS movie_finder.reviewer;
 CREATE TABLE movie_finder.reviewer
 (
     reviewer_id INT NOT NULL PRIMARY KEY auto_increment, -- primary key column
-    first_name varchar(30) NOT NULL,
-    last_name varchar(30) NOT NULL
+    user_name varchar(30) NOT NULL
 );
 
-/*==============================================================*/
-/* Table: director                                              */
-/*==============================================================*/
-
--- Create a new table called 'director' in schema 'movie_finder'
--- Drop the table if it already exists
-
-DROP TABLE IF EXISTS movie_finder.director;
-
--- Create the table in the specified schema
-CREATE TABLE movie_finder.director
-(
-    director_id INT NOT NULL PRIMARY KEY auto_increment, -- primary key column
-    first_name varchar(30) NOT NULL,
-    last_name varchar(30) NOT NULL
-);
 
 /*==============================================================*/
 /* Table: genre                                                 */
@@ -162,10 +145,10 @@ DROP TABLE IF EXISTS movie_finder.cast;
 -- Create the table in the specified schema
 CREATE TABLE movie_finder.cast
 (
-    actor_id int NOT NULL, 
+    person_id int NOT NULL,
     film_id int NOT NULL ,
     role VARCHAR(30) NOT NULL,
-    PRIMARY KEY(actor_id,film_id)
+    PRIMARY KEY(person_id,film_id)
 );
 
 /*==============================================================*/
@@ -180,7 +163,7 @@ DROP TABLE IF EXISTS movie_finder.film_genre;
 -- Create the table in the specified schema
 CREATE TABLE movie_finder.film_genre
 (
-    genre_id int NOT NULL, 
+    genre_id int NOT NULL,
     film_id int NOT NULL ,
     PRIMARY KEY(genre_id,film_id)
 );
@@ -197,8 +180,8 @@ DROP TABLE IF EXISTS movie_finder.film_country;
 -- Create the table in the specified schema
 CREATE TABLE movie_finder.film_country
 (
-    country_id VARCHAR(2) NOT NULL, 
-    film_id int NOT NULL ,
+    country_id VARCHAR(2) NOT NULL,
+    film_id int NOT NULL,
     PRIMARY KEY(country_id,film_id)
 );
 
@@ -214,9 +197,9 @@ DROP TABLE IF EXISTS movie_finder.film_director;
 -- Create the table in the specified schema
 CREATE TABLE movie_finder.film_director
 (
-    director_id int NOT NULL, 
+    person_id int NOT NULL,
     film_id int NOT NULL ,
-    PRIMARY KEY(director_id,film_id)
+    PRIMARY KEY(person_id,film_id)
 );
 
 /*==============================================================*/
@@ -231,7 +214,7 @@ DROP TABLE IF EXISTS movie_finder.rating;
 -- Create the table in the specified schema
 CREATE TABLE movie_finder.rating
 (
-    rate_id int NOT NULL auto_increment, 
+    rate_id int NOT NULL auto_increment,
     film_id int NOT NULL ,
     reviewer_id int NOT NULL,
     rate int(3) NOT NULL,
@@ -244,14 +227,14 @@ CREATE TABLE movie_finder.rating
 
 ALTER TABLE movie_finder.film_language add CONSTRAINT FK_film_language FOREIGN KEY (film_id) REFERENCES film(film_id);
 ALTER TABLE movie_finder.film_language add CONSTRAINT FK_film_language2 FOREIGN KEY (language_id) REFERENCES language(language_id);
-ALTER TABLE movie_finder.cast add CONSTRAINT FK_cast FOREIGN KEY (actor_id) REFERENCES actor(actor_id);
+ALTER TABLE movie_finder.cast add CONSTRAINT FK_cast FOREIGN KEY (person_id) REFERENCES person(person_id);
 ALTER TABLE movie_finder.cast add CONSTRAINT FK_cast2 FOREIGN KEY (film_id) REFERENCES film(film_id);
 ALTER TABLE movie_finder.film_genre add CONSTRAINT FK_film_genre FOREIGN KEY (film_id) REFERENCES film(film_id);
 ALTER TABLE movie_finder.film_genre add CONSTRAINT FK_film_genre2 FOREIGN KEY (genre_id) REFERENCES genre(genre_id);
 ALTER TABLE movie_finder.film_country add CONSTRAINT FK_film_country FOREIGN KEY (film_id) REFERENCES film(film_id);
 ALTER TABLE movie_finder.film_country add CONSTRAINT FK_film_country2 FOREIGN KEY (country_id) REFERENCES country(country_id);
 ALTER TABLE movie_finder.film_director add CONSTRAINT FK_film_director FOREIGN KEY (film_id) REFERENCES film(film_id);
-ALTER TABLE movie_finder.film_director add CONSTRAINT FK_film_director2 FOREIGN KEY (director_id) REFERENCES director(director_id);
+ALTER TABLE movie_finder.film_director add CONSTRAINT FK_film_director2 FOREIGN KEY (person_id) REFERENCES person(person_id);
 ALTER TABLE movie_finder.rating add CONSTRAINT FK_rating FOREIGN KEY (film_id) REFERENCES film(film_id);
 ALTER TABLE movie_finder.rating add CONSTRAINT FK_rating2 FOREIGN KEY (reviewer_id) REFERENCES reviewer(reviewer_id);
 
